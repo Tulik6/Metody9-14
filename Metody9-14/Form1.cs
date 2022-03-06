@@ -19,7 +19,14 @@ namespace Metody9_14
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            double a = double.Parse(textBox1.Text);
+            double b = double.Parse(textBox2.Text);
+            double c = double.Parse(textBox3.Text);
+            double x1, x2, d;
+            Metody.KvadratickaRovnice(a, b, c, out x1, out x2, out d);
+            if (d < 0) MessageBox.Show("Rovnice nema reseni v R");
+            else if (d > 0) MessageBox.Show("Koren x1 je: " + x1 + " a koren x2 je: " + x2);
+            else MessageBox.Show("Rovnice ma jedno dvojnasobne reseni " + x1);
         }
 
         private void button2_Click(object sender, EventArgs e)
