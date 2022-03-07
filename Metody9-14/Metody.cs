@@ -58,12 +58,12 @@ namespace Metody9_14
             return obsahujeCislici;
         }
 
-            public static int PocetSlov1(string retezec, out string upravenyRetezec)
-            {
-                int pocetSlov = 0;
-                char[] separators = { ' ' };
-                retezec = retezec.Trim();
-                string[] poleSlov = retezec.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+        public static int PocetSlov1(string retezec, out string upravenyRetezec)
+        {
+            int pocetSlov = 0;
+            char[] separators = { ' ' };
+            retezec = retezec.Trim();
+            string[] poleSlov = retezec.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             /*foreach(string s in poleSlov)
             {
                 ++pocetSlov;
@@ -82,6 +82,52 @@ namespace Metody9_14
             }
             upravenyRetezec = retezec;
             return pocetSlov;
+        }
+
+        public static int PocetSlov2(ref string retezec)
+        {
+            //Druhý způsob (používáme ref)
+            //Ref mění původní hodnotu
+            int pocetSlov = 0;
+            char[] separators = { ' ' };
+            retezec = retezec.Trim();
+            string[] poleSlov = retezec.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            pocetSlov = poleSlov.Length;
+
+            int i = 0;
+            while (i < retezec.Length)
+            {
+                if (Char.IsNumber(retezec[i]))
+                {
+                    retezec = retezec.Remove(i, 1);
+                }
+                else ++i;
+            }
+
+            return pocetSlov;
+        }
+
+        public static bool ObsahujeSlovo(string retezec, out string nejdelsiSlovo, out string nejkratsiSlovo)
+        {
+            bool obsahujeSlovo = false;
+            string nejdelsiSlovo = " ";
+            string nejkratsiSlovo = " ";
+            char[] separators = { ' ' };
+            string[] poleSlov = retezec.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach(string s in poleSlov)
+            {
+                if(poleSlov.Length > 0)
+                {
+                    obsahujeSlovo = true;
+                }
+            }
+
+
+
+
+
+            return obsahujeSlovo;
         }
     }
 }
