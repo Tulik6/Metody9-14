@@ -55,8 +55,33 @@ namespace Metody9_14
                     }
                 }
             }
-
             return obsahujeCislici;
+        }
+
+            public static int PocetSlov1(string retezec, out string upravenyRetezec)
+            {
+                int pocetSlov = 0;
+                char[] separators = { ' ' };
+                retezec = retezec.Trim();
+                string[] poleSlov = retezec.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            /*foreach(string s in poleSlov)
+            {
+                ++pocetSlov;
+            }*/
+            pocetSlov = poleSlov.Length;
+
+
+            int i = 0;
+            while(i < retezec.Length)
+            {
+                if (Char.IsNumber(retezec[i]))
+                {
+                    retezec = retezec.Remove(i, 1);
+                }
+                else ++i;
+            }
+            upravenyRetezec = retezec;
+            return pocetSlov;
         }
     }
 }

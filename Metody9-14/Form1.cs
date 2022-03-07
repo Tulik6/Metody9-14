@@ -42,5 +42,13 @@ namespace Metody9_14
             }
             else MessageBox.Show("Neobsahuje cifry");
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string retezec = textBox5.Text;
+            string upravenyRetezec = " ";
+            MessageBox.Show("Počet slov je " + Metody.PocetSlov1(retezec, out upravenyRetezec));
+            MessageBox.Show("Po odstranění číslic: " + upravenyRetezec);
+        }
     }
 }
