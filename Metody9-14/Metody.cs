@@ -128,5 +128,33 @@ namespace Metody9_14
 
             return obsahujeSlovo;
         }
+
+        public static bool JeAlfanum(string retezec, out int pocetMalych, out int pocetVelkych, out int pocetJinych)
+        {
+            bool jeAlfanum = false;
+            pocetMalych = 0;
+            pocetVelkych = 0;
+            pocetJinych = 0;
+
+            foreach(char c in retezec)
+            {
+                if (char.IsLetterOrDigit(c))
+                {
+                    jeAlfanum = true;
+                    if (char.IsUpper(c)) ++pocetVelkych;
+                    else if (char.IsLower(c)) ++pocetMalych;
+
+                }
+                else
+                {
+                    jeAlfanum = false;
+                    ++pocetJinych; 
+                }
+            }
+
+
+
+            return jeAlfanum;
+        }
     }
 }

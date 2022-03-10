@@ -62,5 +62,27 @@ namespace Metody9_14
             }
             else MessageBox.Show("Neobsahuje slovo");
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string retezec = textBox7.Text;
+            int pocetMalych = 0;
+            int pocetVelkych = 0;
+            int pocetJinych = 0;
+            if (Metody.JeAlfanum(retezec, out pocetMalych, out pocetVelkych, out pocetJinych))
+            {
+                MessageBox.Show("Je alfanumerický");
+                MessageBox.Show("Počet malých písmen je: " + pocetMalych);
+                MessageBox.Show("Počet velkých písmen je: " + pocetVelkych);
+                MessageBox.Show("Počet jiných znaků je: " + pocetJinych);
+            }
+            else
+            {
+                MessageBox.Show("Není alfanumerický");
+                MessageBox.Show("Počet malých písmen je: " + pocetMalych);
+                MessageBox.Show("Počet velkých písmen je: " + pocetVelkych);
+                MessageBox.Show("Počet jiných znaků je: " + pocetJinych);
+            }
+        }
     }
 }
