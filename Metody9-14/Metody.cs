@@ -110,8 +110,8 @@ namespace Metody9_14
         public static bool ObsahujeSlovo(string retezec, out string nejdelsiSlovo, out string nejkratsiSlovo)
         {
             bool obsahujeSlovo = false;
-            string nejdelsiSlovo = " ";
-            string nejkratsiSlovo = " ";
+            nejdelsiSlovo = " ";
+            nejkratsiSlovo = retezec;
             char[] separators = { ' ' };
             string[] poleSlov = retezec.Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
@@ -120,12 +120,11 @@ namespace Metody9_14
                 if(poleSlov.Length > 0)
                 {
                     obsahujeSlovo = true;
+
+                    if (s.Length > nejdelsiSlovo.Length) nejdelsiSlovo = s;
+                    if (s.Length < nejkratsiSlovo.Length) nejkratsiSlovo = s;
                 }
             }
-
-
-
-
 
             return obsahujeSlovo;
         }

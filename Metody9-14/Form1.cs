@@ -50,5 +50,17 @@ namespace Metody9_14
             MessageBox.Show("Počet slov je " + Metody.PocetSlov1(retezec, out upravenyRetezec));
             MessageBox.Show("Po odstranění číslic: " + upravenyRetezec);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string retezec = textBox6.Text;
+            string nejdelsiSlovo = "";
+            string nejkratsiSlovo = "";
+            if (Metody.ObsahujeSlovo(retezec, out nejdelsiSlovo, out nejkratsiSlovo))
+            {
+                MessageBox.Show("Obsahuje slovo, nejdelší slovo je " + nejdelsiSlovo + ", nejkratší slovo je " + nejkratsiSlovo);
+            }
+            else MessageBox.Show("Neobsahuje slovo");
+        }
     }
 }
