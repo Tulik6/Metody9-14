@@ -84,5 +84,19 @@ namespace Metody9_14
                 MessageBox.Show("Počet jiných znaků je: " + pocetJinych);
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string s1 = textBox8.Text;
+            string s2 = textBox9.Text;
+            int pocetOdlisnosti = 0;
+            int indexOdlisnosti = -1;
+
+            if (Metody.Identicke(s1, s2, out pocetOdlisnosti, out indexOdlisnosti))
+            {
+                MessageBox.Show("Jsou identické");
+            }
+            else MessageBox.Show("Nejsou identické, počet odlišností je " + pocetOdlisnosti + ", index první odlišnosti je " + indexOdlisnosti);
+        }
     }
 }

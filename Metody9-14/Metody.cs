@@ -152,9 +152,66 @@ namespace Metody9_14
                 }
             }
 
-
-
             return jeAlfanum;
+        }
+
+        public static bool Identicke(string s1, string s2, out int pocetOdlisnosti, out int indexOdlisnosti)
+        {
+            bool jeIdenticke = false;
+            pocetOdlisnosti = 0;
+            indexOdlisnosti = -1;
+            string pomocny = "";
+
+            if(s2.Length < s1.Length)
+            {
+                pomocny = s1;
+                s1 = s2;
+                s2 = pomocny;
+            }
+            
+            
+            if(s1 == s2)
+            {
+                jeIdenticke = true;
+            }
+            else if(s1.Length == s2.Length)
+            {
+                for(int i = 0; i < s1.Length; ++i)
+                {
+                    if(s1[i] != s2[i])
+                    {
+                        ++pocetOdlisnosti;
+                        if (indexOdlisnosti == -1) indexOdlisnosti = i;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < s1.Length; ++i)
+                {
+                    if (s1[i] != s2[i])
+                    {
+                        ++pocetOdlisnosti;
+
+                        if (indexOdlisnosti == -1)
+                        {
+                            indexOdlisnosti = i;
+                        }
+                    }
+
+                    
+                }
+
+                pocetOdlisnosti += s2.Length - s1.Length;
+                if (indexOdlisnosti == -1) indexOdlisnosti = s1.Length;
+            }
+
+
+
+
+
+
+            return jeIdenticke;
         }
     }
 }
